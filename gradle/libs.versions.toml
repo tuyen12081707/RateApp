@@ -1,0 +1,38 @@
+[versions]
+agp = "8.10.0"
+kotlin = "2.0.21"
+coreKtx = "1.13.1"
+junit = "4.14-SNAPSHOT"
+junitVersion = "1.3.0"
+espressoCore = "3.7.0"
+appcompat = "1.7.1"
+material = "1.13.0"
+activity = "1.9.3"
+constraintlayout = "2.2.1"
+sspAndroid = "1.1.1"
+reviewKtx = "2.0.2"
+firebaseCrashlytics = "20.0.1"
+googleGmsGoogleServices = "4.4.3"
+googleFirebaseCrashlytics = "3.0.6"
+firebaseAnalytics = "23.0.0"
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+review = { module = "com.google.android.play:review", version.ref = "reviewKtx" }
+ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
+sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sspAndroid" }
+review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "reviewKtx" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }
+

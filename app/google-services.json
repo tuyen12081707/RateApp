@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "643198855347",
+    "project_id": "app057-emoji-battery-test",
+    "storage_bucket": "app057-emoji-battery-test.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643198855347:android:3a22492c4341d018c6e8c6",
+        "android_client_info": {
+          "package_name": "com.panda.rate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvJgcsqg36tRHcvRkb50nu4T4ao5UvARs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

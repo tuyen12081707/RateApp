@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RateApp</string>
+    <string name="rate_us">Rate us</string>
+    <string name="rate_stars">Rate stars:</string>
+    <string name="feedback">Feedback</string>
+    <string name="text_rate1">Please rate us to enhance your experience. Thank you!</string>
+    <string name="text_rate2">We value your feedback.</string>
+    <string name="text_rate3">We\'ll improve your experience</string>
+    <string name="text_rate4">We\'re committed to making it even better.</string>
+    <string name="text_rate5">We\'re delighted that you enjoy using our app</string>
+    <string name="text_rate6">We are thrilled to hear that you love our app.</string>
+    <string name="rate_on_google_play">Rate on Google Play</string>
+    <string name="rate_placeholder">Please rate us to enhance your experience. Thank you!</string>
+    <string name="the_best">The best we can get :”></string>
+    <string name="do_you_like_app">Do you like app?</string>
+    <string name="cancel">Cancel</string>
+</resources>
