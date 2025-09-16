@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 .setPositiveText(R.string.rate_us)
                 .setPositiveColor(R.color.white)
                 .setFeedbackEmail("support.boocha@outlock.com")
-                .setCancelable(true)
+                .setCancelable(false)
                 .setOnRated { stars ->
                     // Xử lý callback, ví dụ log analytics
                     println("User rated: $stars")

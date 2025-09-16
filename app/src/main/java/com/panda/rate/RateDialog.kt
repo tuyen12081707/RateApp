@@ -25,6 +25,7 @@ import androidx.core.graphics.drawable.toDrawable
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.review.testing.FakeReviewManager
 import androidx.core.net.toUri
+import androidx.core.os.bundleOf
 import com.google.firebase.Firebase
 import com.google.firebase.analytics.analytics
 
@@ -42,6 +43,7 @@ class RateDialog(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setCancelable(config.cancelable)
         window?.setBackgroundDrawableResource(android.R.color.transparent)
         window?.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
@@ -75,21 +77,29 @@ class RateDialog(
         }
 
         binding.btnRate.setOnClickListener {
-            logEvent("rate_show")
             if (selectedStars >= 4) {
                 showInAppReview(activity = context as Activity)
             } else {
                 sendFeedback(context, selectedStars, config.feedbackEmail)
             }
+            logEvent("rate_submit", bundleOf("rate_star" to selectedStars))
             config.onRated?.invoke(selectedStars)
             dismiss()
         }
 
     }
 
+    override fun show() {
+        super.show()
+        logEvent("rate_show")
+    }
+
     fun logEvent(event: String, bundle: Bundle? = null) {
         Log.d("event==", event)
-        Firebase.analytics.logEvent(event, bundle)
+        try {
+            Firebase.analytics.logEvent(event, bundle)
+        } catch (_: Exception) {
+        }
     }
 
     private fun setupStars(binding: PopupRatingBinding) {
@@ -99,12 +109,11 @@ class RateDialog(
             ImageView(container.context).apply {
                 layoutParams = LinearLayout.LayoutParams(0, dpToPx(45)).apply {
                     weight = 1f
-                    if (i != 0) marginStart = dpToPx(12)
+                    if (i != 0) marginStart = dpToPx(2)
                 }
                 setImageResource(R.drawable.ic_start_not_active)
                 adjustViewBounds = true
                 setOnClickListener {
-                    logEvent("rate_submit_rate_star_${i + 1}")
                     updateStars(binding, i + 1)
                 }
                 container.addView(this)

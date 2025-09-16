@@ -1,52 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     android:background="@android:color/transparent"
     >
-
-    <FrameLayout
-        android:id="@+id/card"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/_14sdp"
+        android:layout_margin="16dp"
         android:background="@drawable/custom_corner_12dp"
         android:backgroundTint="@color/white"
-        android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        >
         <ImageView
             android:id="@+id/btnClose"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_gravity="end"
-            android:padding="5dp"
             android:elevation="1dp"
-            android:layout_margin="10dp"
+            android:padding="5dp"
             android:src="@drawable/ic_delete"
-            />
-        <LinearLayout
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginBottom="16dp"
-            >
+            app:layout_constraintTop_toTopOf="parent">
+
             <ImageView
                 android:layout_width="match_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/bg_rate"
                 android:layout_height="wrap_content"
-                />
+                android:adjustViewBounds="true"
+                android:src="@drawable/bg_rate" />
+
             <ImageView
                 android:id="@+id/rateEmotion"
                 android:layout_width="120dp"
@@ -57,55 +51,66 @@
                 android:textSize="18sp" />
         </FrameLayout>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:text="@string/do_you_like_app"
-                android:textColor="@color/colorPrimary"
-                style="@style/AppTextStyleBold"
-                android:textSize="@dimen/_17ssp" />
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/ratingLbl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minLines="2"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:gravity="center_horizontal"
-                android:text="@string/text_rate1"
-                android:textColor="@color/color_text_400"
-                style="@style/AppTextStyleMedium"
-                android:textSize="@dimen/_11ssp" />
-            <LinearLayout
-                android:id="@+id/starContainer"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="8dp">
-            </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/AppTextStyleBold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/do_you_like_app"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/frImageView" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnRate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="16dp"
-                android:alpha="0.7"
-                android:enabled="false"
-                android:background="@drawable/custom_corner_24dp"
-                style="@style/AppTextStyleSemiBold"
-                android:backgroundTint="@color/colorBlue"
-                android:text="@string/rate_us"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
-        </LinearLayout>
-    </FrameLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ratingLbl"
+            style="@style/AppTextStyleMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center_horizontal"
+            android:minLines="2"
+            android:text="@string/text_rate1"
+            android:textColor="@color/color_text_400"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <LinearLayout
+            android:id="@+id/starContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/ratingLbl" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRate"
+            style="@style/AppTextStyleSemiBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="16dp"
+            android:alpha="0.7"
+            android:background="@drawable/custom_corner_24dp"
+            android:backgroundTint="@color/colorBlue"
+            android:enabled="false"
+            android:text="@string/rate_us"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/starContainer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
