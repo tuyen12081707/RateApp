@@ -1,12 +1,11 @@
 package com.panda.rate
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.panda.rate.databinding.ActivityMainBinding
+import com.panda.ratelib.RateConfig
+import com.panda.ratelib.RateDialog
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 .build()
             RateDialog(this, config).show()
-
         }
     }
 }

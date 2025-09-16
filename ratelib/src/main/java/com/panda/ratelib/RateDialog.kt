@@ -1,33 +1,24 @@
-package com.panda.rate
+package com.panda.ratelib
 
 import android.app.Activity
 import android.app.Dialog
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.annotation.ColorRes
-import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import com.panda.rate.databinding.PopupRatingBinding
-import androidx.core.graphics.drawable.toDrawable
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.review.testing.FakeReviewManager
 import androidx.core.net.toUri
 import androidx.core.os.bundleOf
+import com.google.firebase.BuildConfig
 import com.google.firebase.Firebase
 import com.google.firebase.analytics.analytics
+import com.panda.ratelib.databinding.PopupRatingBinding
 
 
 class RateDialog(

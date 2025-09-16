@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "RateApp"
 include(":app")
- 
+include(":ratelib")

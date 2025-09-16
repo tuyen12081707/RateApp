@@ -7,34 +7,5 @@
 
     <style name="Theme.RateApp" parent="Base.Theme.RateApp" />
 
-    <style name="AppTextStyleRegular">
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">@font/svn_gilory_regular</item>
-    </style>
 
-    <style name="AppTextStyleBold">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/_18ssp</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:fontFamily">@font/svn_gilory_bold</item>
-    </style>
-    <style name="BottomAppBarTheme" parent="Theme.MaterialComponents.Light.NoActionBar" >
-        <item name="fontFamily">@font/svn_gilory_semibold</item>
-        <item name="android:textSize">@dimen/_11ssp</item>
-    </style>
-
-    <style name="AppTextStyleMedium">
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:fontFamily">@font/svn_gilory_medium</item>
-    </style>
-    <style name="AppTextStyleSemiBold">
-        <item name="android:fontFamily">@font/svn_gilory_semibold</item>
-    </style>
-
-    <style name="RateDialog">
-        <item name="windowFixedWidthMajor">90%</item>
-        <item name="windowFixedWidthMinor">90%</item>
-        <item name="android:windowBackground">@drawable/custom_corner_24dp</item>
-    </style>
 </resources>

@@ -1,19 +1,14 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.gms.google.services)
-    alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
-    namespace = "com.panda.rate"
+    namespace = "com.panda.ratelib"
     compileSdk = 35
+
     defaultConfig {
-        applicationId = "com.panda.rate"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 102
-        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,8 +42,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.firebase.crashlytics)
-    implementation(libs.firebase.analytics)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -57,5 +50,8 @@ dependencies {
     implementation (libs.review)
     // For Kotlin users also add the Kotlin extensions library for Play In-App Review:
     implementation (libs.review.ktx)
-    implementation(project(":ratelib"))
+
+    //firebase
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
 }

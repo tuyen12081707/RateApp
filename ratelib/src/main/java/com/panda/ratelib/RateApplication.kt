@@ -1,4 +1,4 @@
-package com.panda.rate
+package com.panda.ratelib
 
 import android.app.Application
 import com.google.firebase.FirebaseApp

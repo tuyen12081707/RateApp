@@ -1,4 +1,4 @@
-package com.panda.rate
+package com.panda.ratelib
 
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
