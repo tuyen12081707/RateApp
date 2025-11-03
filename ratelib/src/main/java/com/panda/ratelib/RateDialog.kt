@@ -79,6 +79,48 @@ class RateDialog(
         }
 
     }
+    private fun updateStars(binding: PopupRatingBinding, stars: Int) {
+        selectedStars = stars
+        starViews.forEachIndexed { index, star ->
+            star.setImageResource(
+                when {
+                    index < stars -> R.drawable.ic_star_active
+                    else -> R.drawable.ic_start_not_active
+                }
+            )
+        }
+
+        // Nếu chưa chọn gì → hiển thị sao cuối lại thành ảnh đặc biệt
+        if (selectedStars == 0 && starViews.isNotEmpty()) {
+            starViews.last().setImageResource(R.drawable.ic_star_special)
+        }
+
+        binding.btnRate.isEnabled = stars > 0
+        binding.btnRate.alpha = if (stars > 0) 1f else 0.5f
+
+        if (stars > 0) {
+            val emojis = listOf(
+                R.drawable.emoji1,
+                R.drawable.emoji2,
+                R.drawable.emoji3,
+                R.drawable.emoji4,
+                R.drawable.emoji5
+            )
+            val labels = listOf(
+                R.string.text_rate1,
+                R.string.text_rate2,
+                R.string.text_rate3,
+                R.string.text_rate4,
+                R.string.text_rate5
+            )
+            binding.rateEmotion.setImageResource(emojis[stars - 1])
+            binding.ratingLbl.setText(labels[stars - 1])
+            binding.btnRate.text = if (stars < 4)
+                binding.root.context.getString(R.string.rate_us)
+            else
+                binding.root.context.getString(R.string.rate_on_google_play)
+        }
+    }
 
     override fun show() {
         super.show()
@@ -96,54 +138,32 @@ class RateDialog(
     private fun setupStars(binding: PopupRatingBinding) {
         val starCount = 5
         val container = binding.starContainer
+        container.removeAllViews()
+
         starViews = (0 until starCount).map { i ->
             ImageView(container.context).apply {
-                layoutParams = LinearLayout.LayoutParams(0, dpToPx(45)).apply {
+                layoutParams = LinearLayout.LayoutParams(0, dpToPx(30)).apply {
                     weight = 1f
                     if (i != 0) marginStart = dpToPx(2)
                 }
-                setImageResource(R.drawable.ic_start_not_active)
+
+                // ✅ Gán hình đặc biệt cho sao cuối cùng (chưa chọn)
+                setImageResource(
+                    if (i == starCount - 1) R.drawable.ic_star_special // ← ảnh khác
+                    else R.drawable.ic_start_not_active
+                )
+
                 adjustViewBounds = true
                 setOnClickListener {
                     updateStars(binding, i + 1)
                 }
+
                 container.addView(this)
             }
         }
     }
 
-    private fun updateStars(binding: PopupRatingBinding, stars: Int) {
-        selectedStars = stars
-        starViews.forEachIndexed { index, star ->
-            star.setImageResource(
-                if (index < stars) R.drawable.ic_star_active
-                else R.drawable.ic_start_not_active
-            )
-        }
 
-        binding.btnRate.isEnabled = stars > 0
-        binding.btnRate.alpha = if (stars > 0) 1f else 0.5f
-
-        val emojis = listOf(
-            R.drawable.emoji1,
-            R.drawable.emoji2,
-            R.drawable.emoji3,
-            R.drawable.emoji4,
-            R.drawable.emoji5
-        )
-        val labels = listOf(
-            R.string.text_rate1,
-            R.string.text_rate2,
-            R.string.text_rate3,
-            R.string.text_rate4,
-            R.string.text_rate5
-        )
-
-        binding.rateEmotion.setImageResource(emojis[stars - 1])
-        binding.ratingLbl.setText(labels[stars - 1])
-        binding.btnRate.text = if (stars < 4) binding.root.context.getString(R.string.rate_us)
-        else binding.root.context.getString(R.string.rate_on_google_play)
-    }
 
     private fun dpToPx(dp: Int): Int =
         (dp * Resources.getSystem().displayMetrics.density).toInt()
