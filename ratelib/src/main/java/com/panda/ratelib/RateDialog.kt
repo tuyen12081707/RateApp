@@ -107,11 +107,11 @@ class RateDialog(
                 R.drawable.emoji5
             )
             val labels = listOf(
-                R.string.text_rate1,
                 R.string.text_rate2,
                 R.string.text_rate3,
                 R.string.text_rate4,
-                R.string.text_rate5
+                R.string.text_rate5,
+                R.string.text_rate6,
             )
             binding.rateEmotion.setImageResource(emojis[stars - 1])
             binding.ratingLbl.setText(labels[stars - 1])

@@ -33,7 +33,7 @@
                 android:layout_width="120dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/emoji1"
+                android:src="@drawable/emoji0"
                 android:textColor="#1E232E"
                 android:textSize="18sp" />
         </FrameLayout>
