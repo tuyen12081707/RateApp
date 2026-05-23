@@ -12,8 +12,8 @@ android {
         applicationId = "com.panda.rate"
         minSdk = 24
         targetSdk = 35
-        versionCode = 106
-        versionName = "1.0.6"
+        versionCode = 108
+        versionName = "1.0.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
