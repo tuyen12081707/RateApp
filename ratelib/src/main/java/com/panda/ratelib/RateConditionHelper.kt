@@ -17,10 +17,11 @@ object RateConditionHelper {
         configString: String?,
         autoIncrement: Boolean = true
     ): Boolean {
-        // 1. Nếu chuỗi config rỗng hoặc null -> không hiển thị
         if (configString.isNullOrBlank()) return false
 
         val prefs = RatePreferences(context)
+
+        if (prefs.isRated) return false
 
         // 2. Tăng biến đếm số lần thực hiện event
         val currentCount = if (autoIncrement) {
@@ -29,16 +30,18 @@ object RateConditionHelper {
             prefs.getEventCount(eventKey)
         }
 
-        // 3. Parse chuỗi config thành List<Int> (hỗ trợ cả dấu , và dấu _)
         val targetCounts = parseConfigString(configString)
 
-        // 4. Kiểm tra xem lần hiện tại có trùng với các mốc trong cấu hình không
         return targetCounts.contains(currentCount)
     }
 
     /**
      * Parse chuỗi cấu hình hỗ trợ cả dấu phẩy (,) và dấu gạch dưới (_)
      */
+
+    fun setRatedStatus(context: Context, status: Boolean) {
+        RatePreferences(context).isRated = status
+    }
     private fun parseConfigString(config: String): List<Int> {
         return try {
             // Sử dụng Regex [,_] để cắt chuỗi theo cả dấu , hoặc _
@@ -49,5 +52,8 @@ object RateConditionHelper {
         } catch (e: Exception) {
             emptyList()
         }
+    }
+    fun isRated(context: Context): Boolean {
+        return RatePreferences(context).isRated
     }
 }

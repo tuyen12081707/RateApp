@@ -68,6 +68,7 @@ class RateDialog(
         }
 
         binding.btnRate.setOnClickListener {
+            RateConditionHelper.setRatedStatus(context,true)
             if (selectedStars >= 4) {
                 showInAppReview(activity = context as Activity)
             } else {
