@@ -35,6 +35,13 @@ object RateConditionHelper {
         return targetCounts.contains(currentCount)
     }
 
+    fun incrementEventCount(context: Context, eventKey: String) {
+        val prefs = RatePreferences(context)
+        if (prefs.isRated) return
+        prefs.incrementEventCount(eventKey)
+    }
+
+
     /**
      * Parse chuỗi cấu hình hỗ trợ cả dấu phẩy (,) và dấu gạch dưới (_)
      */
@@ -42,6 +49,7 @@ object RateConditionHelper {
     fun setRatedStatus(context: Context, status: Boolean) {
         RatePreferences(context).isRated = status
     }
+
     private fun parseConfigString(config: String): List<Int> {
         return try {
             // Sử dụng Regex [,_] để cắt chuỗi theo cả dấu , hoặc _
@@ -53,6 +61,7 @@ object RateConditionHelper {
             emptyList()
         }
     }
+
     fun isRated(context: Context): Boolean {
         return RatePreferences(context).isRated
     }
