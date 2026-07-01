@@ -1,6 +1,7 @@
 package com.panda.rate
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.panda.rate.databinding.ActivityMainBinding
@@ -21,7 +22,11 @@ class MainActivity : AppCompatActivity() {
                 .setPositiveText(R.string.rate_us)
                 .setPositiveColor(R.color.white)
                 .setFeedbackEmail("support.boocha@outlock.com")
-                .setCancelable(false)
+                .setCancelable(true)
+                .setOnCancelled {
+                    Log.d("TAG==","setOnCancelled")
+
+                }
                 .setOnRated { stars ->
                     // Xử lý callback, ví dụ log analytics
                     println("User rated: $stars")

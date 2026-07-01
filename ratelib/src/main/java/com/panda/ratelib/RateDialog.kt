@@ -58,6 +58,7 @@ class RateDialog(
 
         binding.btnClose.setOnClickListener {
             logEvent("rate_cancel")
+            config.onCancelled?.invoke()
             dismiss()
         }
         setupStars(binding)
