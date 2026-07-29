@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginBottom="@dimen/_40sdp"
         android:background="@drawable/custom_corner_12dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/bg_popup"
         >
 
         <FrameLayout
@@ -115,12 +115,12 @@
             android:layout_marginTop="16dp"
             android:alpha="0.3"
             android:background="@drawable/custom_corner_24dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/bg_button_rate"
             android:enabled="false"
             android:text="@string/rate_us"
             android:textAllCaps="false"
             android:textSize="@dimen/_12sdp"
-            android:textColor="@color/white"
+            android:textColor="@color/text_color"
             app:layout_constraintTop_toBottomOf="@id/starContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
